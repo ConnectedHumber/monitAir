@@ -1,0 +1,42 @@
+monitAIR RaspberryPi Node for connectedhumber.org
+
+Start with Raspbian Lite image https://www.raspberrypi.org/downloads/raspbian/
+currently 'Rasbian Stretch' November 2018
+
+Install python modules as needed, some may already be installed.
+
+Compile Bosch BSEC and copy bsec_bme680, bsec_iaq.config bsec_iaq.state (filname-1) empty file placeholder for reference only
+   
+Currently v2.4.7.2 https://www.bosch-sensortec.com/bst/products/all_products/bsec
+
+SDS021 or SDS011 on GPIO uart.
+Initialise with 
+sudo raspi-config.
+- Interface options
+-- Enable Serial
+--- No to Console
+--- Yes to Port
+(reboot or contntinue to I2C setup)
+
+BME680 on I2C, 3V3 & GND
+Initialise with
+sudo raspi-config
+- Interface options
+-- I2C Enable
+(reboot)
+
+SDS021 should be able to plug directly into pysical pins 2, 4, 6, 8, 10 with white connector, use empty spot at gpio-pin2. 
+(5V, 5V, GND, RXD from SDS, TXD from SDS)
+Double check this is correct for your SDS021.
+Check for SDS011 wiring setup
+
+BME680
+Use pysical pins 1, 3, 5, 9 (3V3, SDA, SCL, GND)
+
+GNNS - Ublox M8030, use USB varient. no aditional setup need. 
+check with lsusb on ttyACM0 or ttyUSB0 if using a different GNSS
+
+DS18B20 on pysical pins 4 (data wire), 14 (VCC/3V3) and 17 (GND)
+~4k7 resistor between pin4 and 3V3
+
+Ben Simmons
