@@ -247,8 +247,7 @@ uint32_t binary_load(uint8_t *b_buffer, uint32_t n_buffer, char *filename,
 uint32_t state_load(uint8_t *state_buffer, uint32_t n_buffer)
 {
   int32_t rslt = 0;
-  rslt = binary_load(state_buffer, n_buffer, filename_state, 0);
-*/  
+  rslt = binary_load(state_buffer, n_buffer, filename_state, 0);  
 return rslt;
 }
 
