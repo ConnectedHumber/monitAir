@@ -1,5 +1,3 @@
-Raspberry Pi Based Node
-
 monitAIR RaspberryPi Node for connectedhumber.org
 
 Start with Raspbian Lite image https://www.raspberrypi.org/downloads/raspbian/
