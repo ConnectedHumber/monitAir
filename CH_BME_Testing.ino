@@ -18,6 +18,9 @@
 
 Adafruit_BME280 bme; // I2C
 
+uint8_t ADDR1=0x76; // some units default to 0x77
+uint8_t ADDR2=0x77;
+
 unsigned long delayTime;
 
 void setup() {
@@ -27,10 +30,13 @@ void setup() {
     bool status;
     
     // default settings
-    status = bme.begin();  
+    status = bme.begin(ADDR1);  
     if (!status) {
-        Serial.println("Could not find a valid BME280 sensor, check wiring!");
-        while (1) yield(); // yield is required to prevent WDT crash.
+        status=bme.begin(ADDR2);
+        if (!status) {
+          Serial.println("Could not find a BME280 sensor at addr 0x76 or 0x77, check wiring!");
+          while (1) yield(); // yield is required to prevent WDT crash.
+        }
     }
     
     Serial.println("-- BME Sensor Test --");
