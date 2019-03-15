@@ -1,4 +1,4 @@
-Kicad files for the node V1 prototype pcb
+Kicad files for the node V0.8 prototype pcb
 
 This node is based on the WeMOS, a BME280 and a serial dust sensor.
 
